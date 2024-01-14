@@ -48,18 +48,17 @@ class Array {
 class Solution{
     //Function to find the leaders in the array.
     static ArrayList<Integer> leaders(int arr[], int n){
-        ArrayList<Integer> ans=new ArrayList<>();
-        
-        for(int i=0;i<n;i++){
-            Boolean leader=true;
-            for(int j=i+1;j<n;j++){
-                if(arr[j]>arr[i]){
-                    leader=false;
-                    break;
-                }
+         ArrayList<Integer> ans = new  ArrayList<Integer>();
+         int j = 0;
+        for(int i = n - 1; i >= 0; i-- ){
+            
+            if (arr[i] >= j){
+                ans.add(arr[i]);
+                j = arr[i];
             }
-            if(leader==true) ans.add(arr[i]);
+            
         }
+        Collections.reverse(ans);
         return ans;
     }
 }
